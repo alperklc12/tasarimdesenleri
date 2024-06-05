@@ -1,0 +1,13 @@
+class SampleCls:
+    _sample_var = None
+
+    @classmethod
+    def create_singleton(cls):
+        if cls._sample_var is None:
+            cls._sample_var = cls.__new__(cls)
+        return cls._sample_var
+
+
+obj1 = SampleCls().create_singleton()
+obj2 = SampleCls().create_singleton()
+print(id(obj1), id(obj2))
